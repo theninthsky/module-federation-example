@@ -1,5 +1,5 @@
 {
-  "name": "@module-federation-example/app1",
+  "name": "@module-federation-boilerplate/app1",
   "version": "0.0.0",
   "scripts": {
     "start": "webpack serve --mode development",
