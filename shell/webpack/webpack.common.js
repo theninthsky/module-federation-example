@@ -1,3 +1,4 @@
+const ESLintPlugin = require('eslint-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { ModuleFederationPlugin } = require('webpack').container
 
@@ -33,13 +34,10 @@ module.exports = {
       }
     ]
   },
-  resolve: {
-    extensions: ['*', '.js', '.jsx']
-  },
+  resolve: { extensions: ['*', '.js', '.jsx'] },
   plugins: [
-    new ModuleFederationPlugin(moduleFederationConfig),
-    new HtmlWebpackPlugin({
-      template: './public/index.html'
-    })
+    new ESLintPlugin(),
+    new HtmlWebpackPlugin({ template: './public/index.html' }),
+    new ModuleFederationPlugin(moduleFederationConfig)
   ]
 }

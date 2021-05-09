@@ -1,7 +1,6 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { ModuleFederationPlugin } = require('webpack').container
-const AutomaticVendorFederation = require('@module-federation/automatic-vendor-federation')
 
 module.exports = {
   entry: './src/index',
@@ -36,12 +35,7 @@ module.exports = {
       filename: 'remoteEntry.js',
       exposes: {
         './App': './src/App'
-      },
-      shared: AutomaticVendorFederation({
-        packageJson: require('./package.json'),
-        exclude: [],
-        ignorePatchVersion: true
-      })
+      }
     }),
     new HtmlWebpackPlugin({
       template: './public/index.html'

@@ -8,6 +8,7 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, 'build'),
     port: 3000,
-    open: true
+    open: true,
+    stats: 'errors-warnings'
   }
 }
