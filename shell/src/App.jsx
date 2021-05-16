@@ -3,6 +3,8 @@ import { Form, Modal } from 'reactstrap'
 import Print from './Print'
 import moment from 'moment'
 
+import Title from 'components/Title'
+
 import style from './App.css'
 
 const App1 = lazy(() => import('app1/App'))
@@ -13,7 +15,7 @@ const App = () => {
 
   return (
     <div className={style.container}>
-      <h1>Shell</h1>
+      <Title>Shell</Title>
 
       <Form>
         <Modal />

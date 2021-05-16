@@ -1,3 +1,4 @@
+const path = require('path')
 const ESLintPlugin = require('eslint-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { ModuleFederationPlugin } = require('webpack').container
@@ -5,6 +6,10 @@ const { ModuleFederationPlugin } = require('webpack').container
 const moduleFederationConfig = require('./module-federation.config.js')
 
 module.exports = {
+  resolve: {
+    modules: [path.resolve(__dirname, '../src'), 'node_modules'],
+    extensions: ['*', '.js', '.jsx']
+  },
   module: {
     rules: [
       {
@@ -34,7 +39,6 @@ module.exports = {
       }
     ]
   },
-  resolve: { extensions: ['*', '.js', '.jsx'] },
   plugins: [
     new ESLintPlugin(),
     new HtmlWebpackPlugin({ template: './public/index.html' }),
