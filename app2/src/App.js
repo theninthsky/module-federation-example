@@ -2,9 +2,9 @@ import { Button, Modal, Form } from 'reactstrap'
 
 import Welcome from './components/Welcome'
 
-const App = ({ onClose }) => (
-  <div>
-    <h2>App 2</h2>
+const App = ({ className, onClose }) => (
+  <div className={className}>
+    <h2 style={{ color: 'blue' }}>App 2</h2>
 
     <Welcome />
     <Button onClick={onClose}>Hide</Button>

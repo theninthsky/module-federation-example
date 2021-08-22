@@ -1,13 +1,12 @@
 import { useState, lazy, Suspense } from 'react'
-import { Form, Modal } from 'reactstrap'
-import Print from './Print'
-import moment from 'moment'
 
+import Hello from './components/Hello'
 import Title from 'components/Title'
 
 import style from './App.css'
 
-const App1 = lazy(() => import('app1/App'))
+import App1 from 'app1/App'
+
 const App2 = lazy(() => import('app2/App'))
 
 const App = () => {
@@ -17,25 +16,19 @@ const App = () => {
     <div className={style.container}>
       <Title>Shell</Title>
 
-      <Form>
-        <Modal />
-      </Form>
+      <Hello />
 
-      <Print />
+      <div className={style.apps}>
+        <App1 className={style.app1} />
 
-      <Suspense fallback="Loading app1...">
-        <App1 />
-      </Suspense>
-
-      <br />
-
-      {app2Visible ? (
-        <Suspense fallback="Loading app2...">
-          <App2 onClose={() => setApp2Visible(false)} />
-        </Suspense>
-      ) : (
-        <button onClick={() => setApp2Visible(true)}>Show app2</button>
-      )}
+        {app2Visible ? (
+          <Suspense fallback="Loading app2...">
+            <App2 className={style.app2} onClose={() => setApp2Visible(false)} />
+          </Suspense>
+        ) : (
+          <button onClick={() => setApp2Visible(true)}>Show app2</button>
+        )}
+      </div>
     </div>
   )
 }

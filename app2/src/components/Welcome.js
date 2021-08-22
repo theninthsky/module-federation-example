@@ -1,3 +1,3 @@
-const Welcome = () => <div>Welcome!</div>
+const Welcome = () => <div style={{ color: 'blue' }}>Welcome!</div>
 
 export default Welcome
